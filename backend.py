@@ -10,11 +10,9 @@ from dotenv import load_dotenv
 import os
 
 
+#Load Groq API key
 load_dotenv()
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-
-
-load_dotenv()
 
 llm = ChatGroq(
     model="gemma2-9b-it",
