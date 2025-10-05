@@ -34,7 +34,7 @@ def load_conversation(thread_id):
     state = chatbot.get_state(config={'configurable': {'thread_id': thread_id}})
     return state.values.get('messages', [])
 
-# Session Setup
+# Setup
 if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
 
