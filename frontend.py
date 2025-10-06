@@ -4,7 +4,7 @@ from backend import chatbot
 from langchain_core.messages import HumanMessage, AIMessage
 import uuid
 
-# Page Config
+# Page setting
 st.set_page_config(
     page_title="AI Chatbot",
     page_icon="🤖",
