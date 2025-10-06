@@ -46,7 +46,7 @@ if 'chat_threads' not in st.session_state:
 
 add_thread(st.session_state['thread_id'], "New Chat 1")
 
-# Custom CSS styling
+# Custom CSS
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
