@@ -736,7 +736,7 @@ with st.sidebar:
                         
                         st.rerun()
 
-# main UI
+# Main UI
 if not st.session_state['message_history']:
     st.markdown("""
         <div class="welcome-container">
