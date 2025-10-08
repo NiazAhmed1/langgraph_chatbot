@@ -1,4 +1,3 @@
-#This File consist of Frontend in streamlit
 import streamlit as st
 from backend import chatbot
 from langchain_core.messages import HumanMessage, AIMessage
@@ -34,7 +33,7 @@ def load_conversation(thread_id):
     state = chatbot.get_state(config={'configurable': {'thread_id': thread_id}})
     return state.values.get('messages', [])
 
-# Setup session
+# Session Setup
 if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
 
@@ -164,70 +163,109 @@ section[data-testid="stSidebar"] button[kind="header"]:hover {
     background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
 }
 
-[data-testid="stSidebar"] .element-container {
-    padding: 0 0.5rem;
+/* Container for chat rows */
+[data-testid="stSidebar"] [data-testid="column"] {
+    padding: 0 0.2rem !important;
 }
 
+[data-testid="stSidebar"] .row-widget.stHorizontal {
+    gap: 0.3rem !important;
+    margin-bottom: 0.5rem !important;
+    align-items: center !important;
+}
+
+[data-testid="stSidebar"] .element-container {
+    padding: 0 !important;
+}
+
+/* Chat button styling - INACTIVE state */
 [data-testid="stSidebar"] button[kind="secondary"] {
-    background: transparent;
-    color: #e5e7eb;
-    border: none;
-    border-radius: 10px;
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 0.3rem;
+    background: rgba(31, 41, 55, 0.6) !important;
+    color: #d1d5db !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
 }
 
 [data-testid="stSidebar"] button[kind="secondary"]:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(4px);
+    background: rgba(55, 65, 81, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Chat button styling - ACTIVE state (currently selected chat) */
 [data-testid="stSidebar"] button[kind="primary"][key^="btn_"] {
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
     color: white !important;
     font-weight: 600 !important;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
-    border: none !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+    border: 1px solid rgba(59, 130, 246, 0.5) !important;
+    border-radius: 10px !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s ease !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
 }
 
-/* Fixed alignment for edit and delete buttons */
+[data-testid="stSidebar"] button[kind="primary"][key^="btn_"]:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Edit and delete button styling - transparent background, clearly visible */
 [data-testid="stSidebar"] button[key^="edit_"],
 [data-testid="stSidebar"] button[key^="delete_"] {
-    background: rgba(255, 255, 255, 0.05) !important;
-    color: #9ca3af !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 8px !important;
-    padding: 0 !important;
-    font-size: 1rem !important;
+    background: none !important;
+    color: #d1d5db !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 0.4rem !important;
+    font-size: 1.1rem !important;
     transition: all 0.2s ease !important;
     width: 36px !important;
     height: 36px !important;
     min-height: 36px !important;
+    max-height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    line-height: 1 !important;
+    box-shadow: none !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+    opacity: 0.8 !important;
 }
 
 [data-testid="stSidebar"] button[key^="edit_"]:hover {
     background: rgba(59, 130, 246, 0.2) !important;
     color: #60a5fa !important;
-    border-color: #3b82f6 !important;
-    transform: scale(1.1) !important;
+    transform: scale(1.15) !important;
+    opacity: 1 !important;
 }
 
 [data-testid="stSidebar"] button[key^="delete_"]:hover {
     background: rgba(239, 68, 68, 0.2) !important;
     color: #f87171 !important;
-    border-color: #ef4444 !important;
-    transform: scale(1.1) !important;
+    transform: scale(1.15) !important;
+    opacity: 1 !important;
 }
 
 [data-testid="stSidebar"] button[key^="save_"] {
@@ -259,13 +297,6 @@ section[data-testid="stSidebar"] button[kind="header"]:hover {
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     outline: none;
-}
-
-/* Column alignment fix */
-[data-testid="stSidebar"] [data-testid="column"] {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 }
 
 .stChatMessage {
@@ -526,13 +557,12 @@ section[data-testid="stSidebar"] button[kind="header"]:hover {
     [data-testid="stSidebar"] button[key^="edit_"],
     [data-testid="stSidebar"] button[key^="delete_"] {
         width: 32px !important;
+        min-width: 32px !important;
+        max-width: 32px !important;
         height: 32px !important;
         min-height: 32px !important;
-        font-size: 0.9rem !important;
-    }
-    
-    [data-testid="stSidebar"] [data-testid="column"] {
-        padding: 0 0.15rem !important;
+        max-height: 32px !important;
+        font-size: 1rem !important;
     }
 }
 
@@ -575,9 +605,12 @@ section[data-testid="stSidebar"] button[kind="header"]:hover {
     [data-testid="stSidebar"] button[key^="edit_"],
     [data-testid="stSidebar"] button[key^="delete_"] {
         width: 30px !important;
+        min-width: 30px !important;
+        max-width: 30px !important;
         height: 30px !important;
         min-height: 30px !important;
-        font-size: 0.85rem !important;
+        max-height: 30px !important;
+        font-size: 0.95rem !important;
     }
 }
 
@@ -673,24 +706,26 @@ with st.sidebar:
     st.header('💬 My Conversations')
     
     for thread_id, thread_info in list(st.session_state['chat_threads'].items())[::-1]:
-        col1, col2, col3 = st.columns([0.70, 0.15, 0.15], gap="small")
-        
-        with col1:
-            if thread_info["editing"]:
-                new_name = st.text_input(
-                    "Rename",
-                    value=thread_info["name"],
-                    key=f"rename_{thread_id}",
-                    label_visibility="collapsed"
-                )
-                if st.button("💾", key=f"save_{thread_id}", use_container_width=True):
-                    st.session_state['chat_threads'][thread_id]["name"] = new_name
-                    st.session_state['chat_threads'][thread_id]["editing"] = False
-                    st.rerun()
-            else:
+        if thread_info["editing"]:
+            new_name = st.text_input(
+                "Rename",
+                value=thread_info["name"],
+                key=f"rename_{thread_id}",
+                label_visibility="collapsed"
+            )
+            if st.button("💾", key=f"save_{thread_id}", use_container_width=True):
+                st.session_state['chat_threads'][thread_id]["name"] = new_name
+                st.session_state['chat_threads'][thread_id]["editing"] = False
+                st.rerun()
+        else:
+            # Use columns to create the row layout: [Chat Button | Edit | Delete]
+            col1, col2, col3 = st.columns([7, 1, 1], gap="small")
+            
+            with col1:
                 is_active = thread_id == st.session_state['thread_id']
                 button_label = thread_info["name"]
                 
+                # Main chat button
                 if st.button(
                     button_label,
                     key=f"btn_{thread_id}",
@@ -707,16 +742,16 @@ with st.sidebar:
                     
                     st.session_state['message_history'] = temp_messages
                     st.rerun()
-        
-        with col2:
-            if not thread_info["editing"]:
-                if st.button("✏️", key=f"edit_{thread_id}"):
+            
+            with col2:
+                # Edit button
+                if st.button("✏️", key=f"edit_{thread_id}", use_container_width=True):
                     st.session_state['chat_threads'][thread_id]["editing"] = True
                     st.rerun()
-        
-        with col3:
-            if not thread_info["editing"]:
-                if st.button("🗑️", key=f"delete_{thread_id}"):
+            
+            with col3:
+                # Delete button
+                if st.button("🗑️", key=f"delete_{thread_id}", use_container_width=True):
                     if len(st.session_state['chat_threads']) == 1:
                         del st.session_state['chat_threads'][thread_id]
                         reset_chat()
@@ -735,7 +770,6 @@ with st.sidebar:
                             st.session_state['message_history'] = temp_messages
                         
                         st.rerun()
-
 # Main UI
 if not st.session_state['message_history']:
     st.markdown("""
