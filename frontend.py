@@ -713,7 +713,7 @@ with st.sidebar:
                 key=f"rename_{thread_id}",
                 label_visibility="collapsed"
             )
-            if st.button("💾", key=f"save_{thread_id}", use_container_width=True):
+            if st.button("💾 Save", key=f"save_{thread_id}", use_container_width=True):
                 st.session_state['chat_threads'][thread_id]["name"] = new_name
                 st.session_state['chat_threads'][thread_id]["editing"] = False
                 st.rerun()
