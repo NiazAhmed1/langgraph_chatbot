@@ -777,7 +777,7 @@ if not st.session_state['message_history']:
             <div class="welcome-icon">🤖</div>
             <div class="welcome-title">Welcome!</div>
             <div class="welcome-message">Hi, how can I help you?</div>
-            <div class="welcome-subtitle">Start a conversation by typing message below</div>
+            <div class="welcome-subtitle">Start a conversation by typing a message below</div>
         </div>
     """, unsafe_allow_html=True)
 else:
