@@ -1,6 +1,6 @@
 # AI Chatbot 🤖
 
-A modern, feature-rich chatbot application built with Streamlit and LangGraph, featuring persistent conversation history and a beautiful dark-themed UI.
+A modern, feature-rich chatbot application built with Streamlit and LangGraph, featuring persistent conversation history and a dark-themed UI.
 
 ![Demo - Welcome Screen](demo.PNG)
 ![Demo - Chat Conversation](chat_demo.PNG)
