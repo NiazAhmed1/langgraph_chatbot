@@ -60,7 +60,6 @@ ai-chatbot/
 ├── backend.py           # LangGraph chatbot logic
 ├── demo.PNG            # Welcome screen screenshot
 ├── chat_demo.PNG       # Chat conversation screenshot
-├── .env                # Environment variables (create this)
 └── requirements.txt    # Python dependencies
 ```
 
@@ -80,8 +79,8 @@ The app will open in your default browser at `http://localhost:8501`
 
 ### Managing Conversations
 - **Switch Chat**: Click on any conversation in the sidebar
-- **Rename Chat**: Click the edit (✏️) icon next to a conversation
-- **Delete Chat**: Click the delete (🗑️) icon next to a conversation
+- **Rename Chat**: double Click the edit (✏️) icon next to a conversation
+- **Delete Chat**: double Click the delete (🗑️) icon next to a conversation
 
 ## Configuration
 
