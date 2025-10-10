@@ -105,18 +105,6 @@ The app uses custom CSS for styling. Key customization points:
 - Chat bubble styles: Adjust `.stChatMessage` classes
 - Sidebar appearance: Modify `[data-testid="stSidebar"]` styles
 
-## Requirements
-
-Create a `requirements.txt` file with:
-
-```txt
-streamlit>=1.28.0
-langchain>=0.1.0
-langchain-groq>=0.0.1
-langchain-core>=0.1.0
-langgraph>=0.0.1
-python-dotenv>=1.0.0
-```
 
 ## Dependencies
 
